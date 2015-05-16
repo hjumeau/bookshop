@@ -1,0 +1,10 @@
+<div class="card">
+	<img class="cover" src={{book.cover}} alt={{book.title}}>
+	<div>{{book.title}}</div>
+	<div>{{book.price}}</div>
+	{{#if isAlreadyInCart}}
+		{{#link-to 'cart' }}Voir panier{{/link-to}}
+	{{else}}
+		<button {{action 'addToCart' book}}>Ajouter au panier</button>
+	{{/if}}
+</div>

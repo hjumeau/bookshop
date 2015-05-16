@@ -10,6 +10,12 @@ export default Ember.Route.extend({
 				return Book.create(book);
 			});
 		});
+	},
+
+	actions: {
+		goToCart: function(){
+			this.transitionTo('cart');
+		}
 	}
 
 });
