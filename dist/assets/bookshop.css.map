@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "bookshop.css",
+	"sources": [
+		"../../tree_merger-tmp_dest_dir-3ciTE05X.tmp/app/styles/app.scss"
+	],
+	"sourcesContent": [
+		"html {\n\tborder:0;\n\tmargin:0;\n\tpadding:0;\n}\n\nbody {\n\tborder: 0;\n\tmargin: 0;\n\tpadding: 0;\n\tbackground-color: #e5e5e5;\n\tcolor: #333;\n\tfont-family: \"Roboto\",UILanguageFont,Arial,sans-serif;\n\tfont-size: 13px;\n\tfont-weight: 300;\n\tline-height: 1.4;\n\theight: 100%;\n\tmin-width: 1024px;\n\tposition: relative;\n\toverflow-x: hidden;\n}\n\nheader {\n\theight:48px;\n\tbackground-color:#fff;\n}\n\n.card {\n\tdisplay: inline-block;\n\tmargin: 5px;\n\ttext-align: left;\n\tvertical-align: top;\n\theight: 288px;\n\twidth: 126px;\n}\n\n.cover {\n\t\n\t\twidth:100%;\n\t\n}"
+	],
+	"mappings": "AAAA,IAAI,CAAC;EACJ,MAAM,EAAC,CAAE;EACT,MAAM,EAAC,CAAE;EACT,OAAO,EAAC,CAAE,GAHL;;AAMN,IAAI,CAAC;EACJ,MAAM,EAAE,CAAE;EACV,MAAM,EAAE,CAAE;EACV,OAAO,EAAE,CAAE;EACX,gBAAgB,EAAE,OAAQ;EAC1B,KAAK,EAAE,IAAK;EACZ,WAAW,EAAE,wCAAyC;EACtD,SAAS,EAAE,IAAK;EAChB,WAAW,EAAE,GAAI;EACjB,WAAW,EAAE,GAAI;EACjB,MAAM,EAAE,IAAK;EACb,SAAS,EAAE,MAAO;EAClB,QAAQ,EAAE,QAAS;EACnB,UAAU,EAAE,MAAO,GAbd;;AAgBN,MAAM,CAAC;EACN,MAAM,EAAC,IAAK;EACZ,gBAAgB,EAAC,IAAK,GAFf;;AAKR,KAAK,CAAC;EACL,OAAO,EAAE,YAAa;EACtB,MAAM,EAAE,GAAI;EACZ,UAAU,EAAE,IAAK;EACjB,cAAc,EAAE,GAAI;EACpB,MAAM,EAAE,KAAM;EACd,KAAK,EAAE,KAAM,GANP;;AASP,MAAM,CAAC;EAEL,KAAK,EAAC,IAAK,GAFL",
+	"names": []
+}

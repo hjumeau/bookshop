@@ -1,0 +1,8 @@
+{{#each book in model}}
+	<div class="card">
+		<img class="cover" src={{book.cover}} alt={{book.title}}>
+		<div>{{book.title}}</div>
+		<div>{{book.price}}</div>
+		<button {{action addToCart book.isbn}}>Ajouter au panier</button>
+	</div>
+{{/each}}
