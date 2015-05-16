@@ -6,24 +6,26 @@ export default Ember.Component.extend({
 	groupedArticles:[],
 
 	didInsertElement:function(){
-		var articles = this.get('cart.articles'), 
-			count;
+		var articles = this.get('cart.articles');
 
-		var groupedArticles = articles.reduce(function(result, item, index){
+		var groupedArticles = articles.reduce(function(result, item){
 
-			if (Ember.isEmpty(result) || result.get('lastObject').isbn !== item.isbn){
-				count = 1;
+			var lastGroupArticle = result.get('lastObject');
+
+			if (Ember.isNone(lastGroupArticle) || lastGroupArticle.article.isbn !== item.isbn){
 				result.pushObject(
 					GroupArticles.create({
 						article: item,
-						count: count,
-						startIndex: index
+						count: 1,
+						startIndex: lastGroupArticle ? lastGroupArticle.startIndex + 1 : 0
 					})
 				);
 			} else {
-				count++;
+				lastGroupArticle.count += 1;
 			}
+
 			return result;
+
 		}, []);	
 
 		this.set('groupedArticles', groupedArticles);
