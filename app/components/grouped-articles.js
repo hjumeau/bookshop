@@ -12,23 +12,36 @@ export default Ember.Component.extend({
 
 	actions:{
 		
-		deleteAll: function(groupArticles){
-			this.sendAction('deleteAll', groupArticles);
+		deleteAll:function(groupArticles){
+
+			var args = [groupArticles.startIndex, groupArticles.count];
+			
+			this.sendAction('updateCartArticles', args);
 		},
-		deleteArticles: function(groupArticles, nbr){
-			this.sendAction('deleteArticles', groupArticles, nbr);
+		deleteArticles:function(groupArticles, nbr){
+			
+			var args = [groupArticles.startIndex, nbr];
+			
+			this.sendAction('updateCartArticles', args);
 		},
-		addArticles: function(groupArticles, nbr){
-			this.sendAction('addArticles', groupArticles, nbr);
+		addArticles:function(groupArticles, nbr){
+			
+			var args = [groupArticles.startIndex, 0];
+
+			for (var i = nbr - 1; i >= 0; i--) {
+				args.push(groupArticles.article);
+			}
+			
+			this.sendAction('updateCartArticles', args);
 		}
 
 	},
 
-	onNbArticlesChange: function(){
+	onNbrArticlesChange: function(){
 
 		this.updateGroupedArticles();
 		
-	}.observes('cart.nbArticles'),
+	}.observes('cart.nbrArticles'),
 
 	updateGroupedArticles: function(){
 		

@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import ajax from 'ic-ajax';
 
-export default Ember.Object.extend({
+var Book = Ember.Object.extend({
 
 	isbn:null,
 	title:null,
@@ -8,3 +9,15 @@ export default Ember.Object.extend({
 	cover:null
   
 });
+
+Book.reopenClass({
+	findAll: function(){
+		return ajax('/api/-books').then(function(books){
+			return books.map(function(book){
+				return Book.create(book);
+			});
+		});
+	}
+});
+
+export default Book;

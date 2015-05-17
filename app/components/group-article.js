@@ -4,6 +4,10 @@ export default Ember.Component.extend({
 
 	desiredNbr: Ember.computed.reads('groupArticle.count'),
 
+	totalPrice: function(){
+		return this.get('groupArticle.article.price') * this.get('groupArticle.count');
+	}.property('groupArticle.count'),
+
 	onDesiredNbrChange: function(){
 		var groupArticle = this.get('groupArticle'),
 			remains = this.get('desiredNbr') - groupArticle.count;
