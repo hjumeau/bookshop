@@ -6,6 +6,32 @@ export default Ember.Component.extend({
 	groupedArticles:[],
 
 	didInsertElement:function(){
+
+		this.updateGroupedArticles();	
+	},
+
+	actions:{
+		
+		deleteAll: function(groupArticles){
+			this.sendAction('deleteAll', groupArticles);
+		},
+		deleteArticles: function(groupArticles, nbr){
+			this.sendAction('deleteArticles', groupArticles, nbr);
+		},
+		addArticles: function(groupArticles, nbr){
+			this.sendAction('addArticles', groupArticles, nbr);
+		}
+
+	},
+
+	onNbArticlesChange: function(){
+
+		this.updateGroupedArticles();
+		
+	}.observes('cart.nbArticles'),
+
+	updateGroupedArticles: function(){
+		
 		var articles = this.get('cart.articles');
 
 		var groupedArticles = articles.reduce(function(result, item){

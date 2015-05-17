@@ -1,3 +1,7 @@
-{{#each groupedArticle in groupedArticles}}
-	
+{{#each groupArticle in groupedArticles}}
+	{{group-article 
+		groupArticle=groupArticle 
+		addArticles='addArticles' 
+		deleteArticles='deleteArticles' 
+		deleteAll='deleteAll'}}	
 {{/each}}

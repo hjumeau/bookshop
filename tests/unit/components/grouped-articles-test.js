@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('grouped-articles', 'Unit | Component | grouped articles', {
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['component:group-article']
 });
 
 test('grouped 1 articles', function(assert) {
