@@ -12,8 +12,8 @@ var Book = Ember.Object.extend({
 
 Book.reopenClass({
 	findAll: function(){
-		return ajax('/api/-books').then(function(books){
-			return books.map(function(book){
+		return ajax('/api/-books').then(function(res){
+			return res.map(function(book){
 				return Book.create(book);
 			});
 		});

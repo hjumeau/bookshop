@@ -1,3 +1,4 @@
 {{#link-to 'books' }}Continuer mes achats{{/link-to}}
-{{cart.totalPrice}}
-{{grouped-articles cart=cart updateCartArticles='updateCartArticles'}}
+{{#bookshop-cart cart=cart}}
+	{{grouped-articles cart=cart updateCartArticles='updateCartArticles'}}
+{{/bookshop-cart}}

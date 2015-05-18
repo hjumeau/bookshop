@@ -11,7 +11,6 @@ export default Ember.Route.extend({
 			Array.prototype.replace.apply(articles, args);
 			articles.enumerableContentDidChange();
 		}
-	
 	},
 });
 	
