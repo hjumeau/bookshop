@@ -47,6 +47,6 @@ test('finalPrice should equal to 71.4', function(assert) {
   	assert.equal(component.get('discount'), 18.6);
   	assert.equal(component.get('finalPrice'), 71.4);
   	done();
-  }, 500);
+  }, 1000);
 
 });
