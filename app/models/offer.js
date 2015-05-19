@@ -16,7 +16,8 @@ Offer.reopenClass({
 	SLICE: 'slice',
 
 	find: function(isbns){
-		return ajax('/api/-offers', isbns).then(function(res){
+		var url = '/api/-offers/'+isbns.join(',');
+		return ajax(url).then(function(res){
 			return res.offers.map(function(offer){
 				return Offer.create(offer);
 			});
