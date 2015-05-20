@@ -2,33 +2,12 @@ import Ember from 'ember';
 import Offer from 'bookshop/models/offer';
 
 export default Ember.Component.extend({
-	
-	totalPrice:0,
+
 	discount:0,
 
-	finalPrice: function(){
+	onTotalPriceChange:function(){
 
-		return this.get('totalPrice') - this.get('discount');
-
-	}.property('totalPrice', 'discount'),
-
-	didInsertElement:function(){
-
-		this.updateCart();
-	
-	},
-
-	onArticlesChange:function(){
-
-		this.updateCart();
-
-	}.observes('cart.articles.@each'),
-
-	updateCart:function(){
-
-		var totalPrice = this.get('cart.articles').mapBy('price').reduce(function(result, item){
-			return result + item;
-		}, 0);
+		var totalPrice = this.get('cart.totalPrice');
 		Offer.find(this.get('cart.articles').mapBy('isbn')).then(function(offers){
 
 			var discount = offers.reduce(function(result, item){
@@ -46,9 +25,16 @@ export default Ember.Component.extend({
 				return result;
 			}, 0);
 
-			this.setProperties({'totalPrice':totalPrice, 'discount':discount});
+			this.set('discount',discount);
+
 		}.bind(this));
 
-	}
+	}.observes('cart.totalPrice').on('init'),
+	
+	finalPrice: function(){
+
+		return this.get('cart.totalPrice') - this.get('discount');
+
+	}.property('discount')
 
 });

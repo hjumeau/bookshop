@@ -1,3 +1,16 @@
-{{totalPrice}} - {{discount}} = {{finalPrice}}
+<div class="card-panel cart-resume">
+	<div class="row">
+		<div class="col s8">
+			<div class="cart-resume__detail">
+				<p><strong>Votre panier</strong></p>
+				<p><small>(-{{discount}}€ de remises)</small></p>	
+			</div>
+			<span class="cart-resume__price blue-text">{{finalPrice}}€</span>
+		</div>
+		<div class="col s4 right-align">
+			<a class="waves-effect waves-teal btn-flat blue white-text">Passer la commande</a>
+		</div>
+	</div>
+</div>
 {{yield}}
 

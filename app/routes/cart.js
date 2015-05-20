@@ -6,9 +6,10 @@ export default Ember.Route.extend({
 		
 		updateCartArticles:function(args){
 
+			debugger;
 			var articles = this.get('cart.articles');
 			
-			Array.prototype.replace.apply(articles, args);
+			Array.prototype.splice.apply(articles, args);
 			articles.enumerableContentDidChange();
 		}
 	},

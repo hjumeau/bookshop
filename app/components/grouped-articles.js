@@ -47,6 +47,7 @@ export default Ember.Component.extend({
 		
 		var articles = this.get('cart.articles');
 
+		debugger;
 		var groupedArticles = articles.reduce(function(result, item){
 
 			var lastGroupArticle = result.get('lastObject');
@@ -56,7 +57,7 @@ export default Ember.Component.extend({
 					GroupArticles.create({
 						article: item,
 						count: 1,
-						startIndex: lastGroupArticle ? lastGroupArticle.startIndex + 1 : 0
+						startIndex: this.getNextStartIndex(lastGroupArticle)
 					})
 				);
 			} else {
@@ -65,8 +66,12 @@ export default Ember.Component.extend({
 
 			return result;
 
-		}, []);	
+		}.bind(this), []);	
 
 		this.set('groupedArticles', groupedArticles);
+	}, 
+
+	getNextStartIndex: function(groupArticles){
+		return groupArticles ? groupArticles.startIndex + groupArticles.count : 0;
 	}
 });

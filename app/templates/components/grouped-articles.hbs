@@ -1,7 +1,10 @@
+<ul class="collection grouped-article">
 {{#each groupArticle in groupedArticles}}
-	{{group-article 
+	{{group-article
+		class='collection-item group-article' 
 		groupArticle=groupArticle 
 		addArticles='addArticles' 
 		deleteArticles='deleteArticles' 
 		deleteAll='deleteAll'}}	
 {{/each}}
+</ul>

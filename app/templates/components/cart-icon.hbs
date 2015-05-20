@@ -1,3 +1,4 @@
 {{#link-to 'cart'}}
-	{{yield}}
+	<i class="small mdi-action-shopping-cart blue-text"></i>
+	<span>{{cart.nbrArticles}} articles</span> | <span>{{cart.totalPrice}}€</span> 
 {{/link-to}}

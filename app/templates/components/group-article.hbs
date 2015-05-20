@@ -1,4 +1,17 @@
-<img src={{groupArticle.article.cover}} alt={{groupArticle.article.title}} />
-{{input type="number" value=desiredNbr}}
-<div>{{totalPrice}}</div>
-<button {{action deleteAll}}>Supprimer</button>
+<div class="row">
+	<div class="col s10">
+		<div class="group-article__cover">
+			<img src={{groupArticle.article.cover}} alt={{groupArticle.article.title}} />
+		</div>
+		<div class="group-article__detail">
+			<span class="title">{{groupArticle.article.title}}</span>
+			{{input class="number" type='number' value=desiredNbr step=1 min=1}}
+		</div>
+	</div>
+	<div class="col s2">
+		<a href="#" {{action deleteAll}} class="secondary-content">
+			<i class="small mdi-navigation-close blue-text"></i>
+		</a>
+		<div class="group-article__total blue-text">{{totalPrice}} €</div>
+	</div>
+</div>

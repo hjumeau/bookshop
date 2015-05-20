@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+	tagName:'li',
+
 	desiredNbr: Ember.computed.reads('groupArticle.count'),
 
 	totalPrice: function(){
@@ -9,6 +11,12 @@ export default Ember.Component.extend({
 	}.property('groupArticle.count'),
 
 	onDesiredNbrChange: function(){
+
+		debugger;
+		if (!this.get('desiredNbr')) {
+			return;
+		}
+
 		var groupArticle = this.get('groupArticle'),
 			remains = this.get('desiredNbr') - groupArticle.count;
 		
