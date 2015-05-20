@@ -6,7 +6,6 @@ export default Ember.Route.extend({
 		
 		updateCartArticles:function(args){
 
-			debugger;
 			var articles = this.get('cart.articles');
 			
 			Array.prototype.splice.apply(articles, args);

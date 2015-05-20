@@ -12,7 +12,6 @@ export default Ember.Component.extend({
 
 	onDesiredNbrChange: function(){
 
-		debugger;
 		if (!this.get('desiredNbr')) {
 			return;
 		}

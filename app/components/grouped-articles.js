@@ -47,7 +47,6 @@ export default Ember.Component.extend({
 		
 		var articles = this.get('cart.articles');
 
-		debugger;
 		var groupedArticles = articles.reduce(function(result, item){
 
 			var lastGroupArticle = result.get('lastObject');
