@@ -12,7 +12,13 @@
 .group-article__detail {
 	display: inline-block;
 	vertical-align: top;
-	.count__input, .count__value {
+	width: 83%;
+	.count__input {
+		display: inline-block;
+		width: 75%;
+	}
+	.count__value {
+		width: 21%;
 		display: inline-block;
 	}
 }
