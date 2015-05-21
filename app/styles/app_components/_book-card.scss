@@ -1,0 +1,65 @@
+@media #{$small-and-down} {
+    // styles for small screens and down
+    .book-card__action {
+    	font-size:11px;
+    }
+    .book-card__cover {
+    	img {
+    		max-height: 182px;
+    	}
+    }
+}
+
+.book-card.col {
+	padding: 4px;
+}
+
+.card-content.book-content {
+	white-space: nowrap;
+	padding: 5px;
+}
+
+.card-action.book-card__action {
+	padding: 5px;
+	a {
+		margin: 0px;
+	} 
+}
+
+.card-panel.cart-resume {
+	paddin: 5px 20px;
+	.row {
+		margin-bottom: 0;
+	}
+}
+
+.book-price {
+	font-size: 12px;
+	line-height: 17px;
+	font-weight: 400;
+	padding: 0px 5px 5px 0px;
+}
+
+.book-title {
+	position: relative;
+	overflow: hidden;
+	.card-title.book-title__title {
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
+
+.book-title__end {
+	background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
+	background-image: -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
+	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+	background: linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#00ffffff',EndColorStr='#ffffff');
+	height: 25px;
+	max-height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0;
+	width: 60px;
+}
+

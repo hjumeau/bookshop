@@ -1,7 +1,17 @@
 @import "bower_components/materialize/sass/materialize.scss";
+/* override, material icons doesn't work well */
 @import "components/_icons-material-design-safe.scss";
 
 $btn-color: color("blue", "base");
+
+/* Ember components */
+@import "app_components/_book-card.scss";
+@import "app_components/_bookshop-cart.scss";
+@import "app_components/_cart-icon.scss";
+@import "app_components/_group-article.scss";
+@import "app_components/_grouped-article.scss";
+
+
 
 html {
 	border:0;
@@ -30,144 +40,5 @@ header {
 	background-color:#fff;
 }
 
-.book-card.col {
-	padding: 4px;
-}
 
-.card-content.book-content {
-	white-space: nowrap;
-	padding: 5px;
-}
-
-.book-price {
-	font-size: 12px;
-	line-height: 17px;
-	font-weight: 400;
-	padding: 0px 5px 5px 0px;
-}
-
-.book-title {
-	position: relative;
-	overflow: hidden;
-}
-
-.card-title.grey-text.text-darken-4.book-title__title {
-	font-size: 14px;
-	line-height: 17px;
-}
-
-.book-title__end {
-	background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
-	background-image: -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
-	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
-	background: linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1));
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#00ffffff',EndColorStr='#ffffff');
-	height: 25px;
-	max-height: 100%;
-	position: absolute;
-	top: 0px;
-	right: 0;
-	width: 60px;
-}
-
-.book-cart {
-	padding: 5px;
-}
-
-
-.card-action.book-card__action {
-	padding: 10px;
-	a {
-		margin: 0px;
-	} 
-}
-
-.collection-item.group-article {
-	.row {
-		margin-bottom: 0;
-	}
-}
-
-.group-article__cover {
-	display: inline-block;
-	vertical-align: top;
-	padding-right: 10px;
-	max-width: 10%;
-	border-radius: 3%;
-	img {
-		Width: 100%;
-	}
-}
-
-.group-article__detail {
-	display: inline-block;
-	vertical-align: top;
-	.count__input, .count__value {
-		display: inline-block;
-	}
-}
-
-.group-article__total {
-	padding-left: 5px;
-	font-size: 1rem;
-	line-height: 17px;
-	font-weight: 500;
-}	
-
-.cart-resume {
-	position: relative;
-
-	.detail__meta {
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 10px;
-		p {
-			margin:0;
-		}
-		.meta__title {
-			font-weight: 500;
-			text-transform: uppercase;
-		}
-	}
-
-	.detail__price {
-		vertical-align: middle;
-		font-size: 25px;
-		line-height: 17px;
-		font-weight: 400;
-	}
-} 
-
-.cart-resume__action {
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 100%;
-	a {
-		height: 99%;
-		border-radius: 0;
-	}
-	.btn-action {
-		padding-top: 18px;
-		background-color: $btn-color;
-		color: white;
-		font-size: 13px;
-		font-weight: 500;
-		text-transform: uppercase;
-	}
-}
-
-.card-panel.cart-resume {
-	paddin: 5px 20px;
-	.row {
-		margin-bottom: 0;
-	}
-}
-
-.cart-icon {
-	a {
-		padding: 0;
-		border-radius: 0;
-	}
-}
 

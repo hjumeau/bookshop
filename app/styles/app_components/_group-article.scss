@@ -1,0 +1,25 @@
+.group-article__cover {
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 10px;
+	max-width: 10%;
+	border-radius: 3%;
+	img {
+		Width: 100%;
+	}
+}
+
+.group-article__detail {
+	display: inline-block;
+	vertical-align: top;
+	.count__input, .count__value {
+		display: inline-block;
+	}
+}
+
+.group-article__total {
+	padding-left: 5px;
+	font-size: 1rem;
+	line-height: 17px;
+	font-weight: 500;
+}	
