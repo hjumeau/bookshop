@@ -1,14 +1,18 @@
 <div class="card-panel cart-resume">
 	<div class="row">
-		<div class="col s8">
-			<div class="cart-resume__detail">
-				<p><strong>Votre panier</strong></p>
-				<p><small>(-{{discount}}€ de remises)</small></p>	
+		<div class="col s6 m8 l9 cart-resume__detail">
+			<div class="detail__meta">
+				<p class="meta__title">Votre panier</p>
+				{{#if discount}}
+					<p><small>( -{{discount}}€ de remises )</small></p>	
+				{{/if}}
 			</div>
-			<span class="cart-resume__price blue-text">{{finalPrice}}€</span>
+			<span class="detail__price blue-text">{{finalPrice}}€</span>
 		</div>
-		<div class="col s4 right-align">
-			<a class="waves-effect waves-teal btn-flat blue white-text">Passer la commande</a>
+		<div class="col s6 m4 l3 cart-resume__action blue center-align">
+			<a class="waves-effect waves-light btn-action">
+				Passer la commande
+			</a>
 		</div>
 	</div>
 </div>

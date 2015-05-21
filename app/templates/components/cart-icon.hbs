@@ -1,4 +1,5 @@
-{{#link-to 'cart'}}
-	<i class="small mdi-action-shopping-cart blue-text"></i>
-	<span>{{cart.nbrArticles}} articles</span> | <span>{{cart.totalPrice}}€</span> 
+{{#link-to 'cart' class="waves-effect waves-teal btn-flat"}}
+	<span>mon panier</span>
+	<span>{{cart.nbrArticles}} articles</span> | 
+	<span><strong>{{cart.totalPrice}}€</strong></span> 
 {{/link-to}}

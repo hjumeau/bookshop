@@ -1,6 +1,8 @@
 @import "bower_components/materialize/sass/materialize.scss";
 @import "components/_icons-material-design-safe.scss";
 
+$btn-color: color("blue", "base");
+
 html {
 	border:0;
 	margin:0;
@@ -18,14 +20,18 @@ body {
 	font-weight: 300;
 	line-height: 1.4;
 	height: 100%;
-	min-width: 1024px;
 	position: relative;
 	overflow-x: hidden;
 }
 
 header {
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 	height:48px;
 	background-color:#fff;
+}
+
+.book-card.col {
+	padding: 4px;
 }
 
 .card-content.book-content {
@@ -37,9 +43,7 @@ header {
 	font-size: 12px;
 	line-height: 17px;
 	font-weight: 400;
-	position: absolute;
-	right: 4px;
-	bottom: 4px;
+	padding: 0px 5px 5px 0px;
 }
 
 .book-title {
@@ -70,6 +74,14 @@ header {
 	padding: 5px;
 }
 
+
+.card-action.book-card__action {
+	padding: 10px;
+	a {
+		margin: 0px;
+	} 
+}
+
 .collection-item.group-article {
 	.row {
 		margin-bottom: 0;
@@ -90,29 +102,59 @@ header {
 .group-article__detail {
 	display: inline-block;
 	vertical-align: top;
-}
-
-.group-article__total {
-	font-size: 12px;
-	line-height: 17px;
-	font-weight: 400;
-	margin-top: 50%;
-}	
-
-.cart-resume__detail {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 10px;
-	p {
-		margin:0;
+	.count__input, .count__value {
+		display: inline-block;
 	}
 }
 
-.cart-resume__price {
-	vertical-align: middle;
-	font-size: 25px;
+.group-article__total {
+	padding-left: 5px;
+	font-size: 1rem;
 	line-height: 17px;
-	font-weight: 400;
+	font-weight: 500;
+}	
+
+.cart-resume {
+	position: relative;
+
+	.detail__meta {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 10px;
+		p {
+			margin:0;
+		}
+		.meta__title {
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+	}
+
+	.detail__price {
+		vertical-align: middle;
+		font-size: 25px;
+		line-height: 17px;
+		font-weight: 400;
+	}
+} 
+
+.cart-resume__action {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	a {
+		height: 99%;
+		border-radius: 0;
+	}
+	.btn-action {
+		padding-top: 18px;
+		background-color: $btn-color;
+		color: white;
+		font-size: 13px;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
 }
 
 .card-panel.cart-resume {
@@ -121,3 +163,11 @@ header {
 		margin-bottom: 0;
 	}
 }
+
+.cart-icon {
+	a {
+		padding: 0;
+		border-radius: 0;
+	}
+}
+

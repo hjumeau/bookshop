@@ -1,17 +1,21 @@
 <div class="row">
-	<div class="col s10">
-		<div class="group-article__cover">
+	<div class="col s12">
+		<div class="group-article__cover .hide-on-small-only">
 			<img src={{groupArticle.article.cover}} alt={{groupArticle.article.title}} />
 		</div>
 		<div class="group-article__detail">
-			<span class="title">{{groupArticle.article.title}}</span>
-			{{input class="number" type='number' value=desiredNbr step=1 min=1}}
+			<span class="detail__title"><strong>{{groupArticle.article.title}}</strong></span>
+			<div class="detail__count">
+				<div class="count__input">
+					{{input class="number" type='number' value=desiredNbr step=1 min=1}}
+				</div>
+				<div class="count__value">
+					<div class="group-article__total blue-text">{{totalPrice}}€</div>
+				</div>	
+			</div>
 		</div>
-	</div>
-	<div class="col s2">
 		<a href="#" {{action deleteAll}} class="secondary-content">
 			<i class="small mdi-navigation-close blue-text"></i>
 		</a>
-		<div class="group-article__total blue-text">{{totalPrice}} €</div>
 	</div>
 </div>

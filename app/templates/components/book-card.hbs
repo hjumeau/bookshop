@@ -9,11 +9,13 @@
 			</span>
 			<span class="book-title__end"></span>
 		</div>
-		{{#if isAlreadyInCart}}
-			<p>{{#link-to 'cart' }}Voir panier{{/link-to}}</p>
-		{{else}}
-			<p><a href="#" {{action 'addToCart' book}}>Ajouter au panier</a></p>
-		{{/if}}
-		<span class="book-price light-blue-text">{{book.price}} €</span>
 	</div>
+	<div class="card-action book-card__action">
+		{{#if isAlreadyInCart}}
+			{{#link-to 'cart' }}Modifier le panier{{/link-to}}
+		{{else}}
+			<a href="#" {{action 'addToCart' book}}>Ajouter au panier</a>
+		{{/if}}
+	</div>
+	<div class="book-price light-blue-text right-align">{{book.price}} €</div>
 </div>
