@@ -1,7 +1,18 @@
 # Bookshop
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The online bookshop of Henri Potier, a skills assessment from xebia.
+
+This project is splitted into two parts :
+
+* Front-end : [https://github.com/hjumeau/bookshop.git] (this repository!)
+* Back-end : [https://github.com/hjumeau/bookshop-api.git](https://github.com/hjumeau/bookshop-api.git)
+
+Front and Back resources are deployed separately on Heroku.
+
+* https://henri-bookshop.herokuapp.com/ -> Expose JavaScript and CSS files
+* https://henri-bookshop.herokuapp-api.com/ -> Include JavaScript and CSS files
+
+Visit bookshop app at [https://henri-bookshop.herokuapp-api.com/](https://henri-bookshop.herokuapp-api.com/)
 
 ## Prerequisites
 
@@ -23,15 +34,14 @@ You will need the following things properly installed on your computer.
 ## Running / Development
 
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* Visit your app at [http://localhost:4200](http://localhost:4200). (with api mock)
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
+* `ember server --proxy https://henri-bookshop-api.herokuapp.com`
+* Visit your app at [http://localhost:4200](http://localhost:4200). (with api proxy)
 
 ### Running Tests
 
-* `ember test`
+* `ember test` 
 * `ember test --server`
 
 ### Building
@@ -41,13 +51,5 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+I want a better way to deploy my MVC * applications.
+Do you have a suggestion ? : -)
