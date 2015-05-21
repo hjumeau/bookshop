@@ -10,9 +10,9 @@ This project is splitted into two parts :
 Front and Back resources are deployed separately on Heroku.
 
 * https://henri-bookshop.herokuapp.com/ -> Expose JavaScript and CSS files
-* https://henri-bookshop.herokuapp-api.com/ -> Include JavaScript and CSS files
+* https://henri-bookshop-api.herokuapp.com/ -> Include JavaScript and CSS files
 
-*Visit bookshop app at [https://henri-bookshop.herokuapp-api.com/](https://henri-bookshop.herokuapp-api.com/)*
+*Visit bookshop app at [https://henri-bookshop-api.herokuapp.com/](https://henri-bookshop-api.herokuapp.com/)*
 
 ## Prerequisites
 
