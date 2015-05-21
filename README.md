@@ -4,7 +4,7 @@ The online bookshop of Henri Potier, a skills assessment from xebia.
 
 This project is splitted into two parts :
 
-* Front-end : [https://github.com/hjumeau/bookshop.git] (this repository!)
+* Front-end : [https://github.com/hjumeau/bookshop.git](https://github.com/hjumeau/bookshop.git) (this repository)
 * Back-end : [https://github.com/hjumeau/bookshop-api.git](https://github.com/hjumeau/bookshop-api.git)
 
 Front and Back resources are deployed separately on Heroku.
@@ -12,7 +12,7 @@ Front and Back resources are deployed separately on Heroku.
 * https://henri-bookshop.herokuapp.com/ -> Expose JavaScript and CSS files
 * https://henri-bookshop.herokuapp-api.com/ -> Include JavaScript and CSS files
 
-Visit bookshop app at [https://henri-bookshop.herokuapp-api.com/](https://henri-bookshop.herokuapp-api.com/)
+*Visit bookshop app at [https://henri-bookshop.herokuapp-api.com/](https://henri-bookshop.herokuapp-api.com/)*
 
 ## Prerequisites
 
