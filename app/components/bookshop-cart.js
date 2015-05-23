@@ -5,7 +5,24 @@ export default Ember.Component.extend({
 
 	discount:0,
 
+	didInsertElement: function(){
+
+		this.updateDiscount();
+	},
+
 	onTotalPriceChange:function(){
+
+		this.updateDiscount();
+
+	}.observes('cart.totalPrice'),
+	
+	finalPrice: function(){
+
+		return this.get('cart.totalPrice') - this.get('discount');
+
+	}.property('discount', 'cart.totalPrice'),
+
+	updateDiscount: function(){
 
 		var totalPrice = this.get('cart.totalPrice');
 
@@ -22,7 +39,6 @@ export default Ember.Component.extend({
 				if(offer.get('type') === Offer.MINUS){
 					return offer.get('value');
 				}
-
 			});
 
 			var discount = Math.max.apply(null, discounts);
@@ -30,13 +46,6 @@ export default Ember.Component.extend({
 			this.set('discount',discount);
 
 		}.bind(this));
-
-	}.observes('cart.totalPrice').on('init'),
-	
-	finalPrice: function(){
-
-		return this.get('cart.totalPrice') - this.get('discount');
-
-	}.property('discount')
+	}
 
 });

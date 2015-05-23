@@ -7,10 +7,10 @@ moduleForComponent('bookshop-cart', 'Unit | Component | bookshop cart', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('finalPrice should equal to 71.4', function(assert) {
-	assert.expect(3);
+test('finalPrice should equal to 75', function(assert) {
+	assert.expect(2);
 
-	defineFixture('/api/-offers', {
+	defineFixture('/api/-offers/bbb', {
 		response: {
 			"offers": [
 			{
@@ -32,21 +32,109 @@ test('finalPrice should equal to 71.4', function(assert) {
 		textStatus: 'success'
 	});
 
-  // Creates the component instance
-  var component = this.subject();
 
-  component.set('cart', {articles:[{ibsn:'aaa', price:30},{isbn:'bbb', price:25},{isbn:'ccc', price:35}]});
-  component.updateCart();
+    // Creates the component instance
+    var component = this.subject();
 
-  // Renders the component to the page
-  this.render();
+    component.set('cart', {totalPrice:90,articles:[{isbn:'bbb'}]});
 
-  var done = assert.async();
-  Ember.run.later(function(){
-  	assert.equal(component.get('totalPrice'), 90);
-  	assert.equal(component.get('discount'), 18.6);
-  	assert.equal(component.get('finalPrice'), 71.4);
-  	done();
-  }, 1000);
+    Ember.run(function(){
+    	component.updateDiscount();
+    });
+
+    var done = assert.async();
+    Ember.run.later(function(){
+    	assert.equal(component.get('discount'), 15);
+    	assert.equal(component.get('finalPrice'), 75);
+    	done();
+    }, 2000);
+
+});
+
+test('finalPrice should equal to 176', function(assert) {
+	assert.expect(2);
+
+	defineFixture('/api/-offers/bbb', {
+		response: {
+			"offers": [
+			{
+				"type": "percentage",
+				"value": 4
+			},
+			{
+				"type": "minus",
+				"value": 15
+			},
+			{
+				"type": "slice",
+				"sliceValue": 100,
+				"value": 12
+			}
+			]
+		},
+		jqXHR: {},
+		textStatus: 'success'
+	});
+
+
+    // Creates the component instance
+    var component = this.subject();
+
+    component.set('cart', {totalPrice:200,articles:[{isbn:'bbb'}]});
+
+    Ember.run(function(){
+    	component.updateDiscount();
+    });
+
+    var done = assert.async();
+    Ember.run.later(function(){
+    	assert.equal(component.get('discount'), 24);
+    	assert.equal(component.get('finalPrice'), 176);
+    	done();
+    }, 2000);
+
+});
+
+test('finalPrice should equal to 127.5', function(assert) {
+	assert.expect(2);
+
+	defineFixture('/api/-offers/bbb', {
+		response: {
+			"offers": [
+			{
+				"type": "percentage",
+				"value": 15
+			},
+			{
+				"type": "minus",
+				"value": 15
+			},
+			{
+				"type": "slice",
+				"sliceValue": 100,
+				"value": 12
+			}
+			]
+		},
+		jqXHR: {},
+		textStatus: 'success'
+	});
+
+
+    // Creates the component instance
+    var component = this.subject();
+
+    component.set('cart', {totalPrice:150,articles:[{isbn:'bbb'}]});
+
+    Ember.run(function(){
+    	component.updateDiscount();
+    });
+
+    var done = assert.async();
+    Ember.run.later(function(){
+    	assert.equal(component.get('discount'), 22.5);
+    	assert.equal(component.get('finalPrice'), 127.5);
+    	done();
+    }, 2000);
 
 });

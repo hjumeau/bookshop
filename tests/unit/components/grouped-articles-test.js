@@ -153,6 +153,6 @@ test('grouped 2 and 3 articles', function(assert) {
   this.render();
 
   assert.equal(component.get('groupedArticles').length, 4);
-  assert.equal(component.get('groupedArticles')[2].startIndex, 2);
+  assert.equal(component.get('groupedArticles')[2].startIndex, 3);
   assert.equal(component.get('groupedArticles')[2].count, 3);
 });
