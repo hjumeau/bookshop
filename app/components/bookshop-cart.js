@@ -8,22 +8,24 @@ export default Ember.Component.extend({
 	onTotalPriceChange:function(){
 
 		var totalPrice = this.get('cart.totalPrice');
+
 		Offer.find(this.get('cart.articles').mapBy('isbn')).then(function(offers){
 
-			var discount = offers.reduce(function(result, item){
+			var discounts = offers.map(function(offer){
 
-				if(item.get('type') === Offer.PERCENTAGE){
-					result += (totalPrice * item.get('value')) / 100;
+				if(offer.get('type') === Offer.PERCENTAGE){
+					return (totalPrice * offer.get('value')) / 100;
 				}
-				if(item.get('type') === Offer.SLICE){
-					result += Math.floor(totalPrice / item.get('sliceValue')) * item.get('value');
+				if(offer.get('type') === Offer.SLICE){
+					return Math.floor(totalPrice / offer.get('sliceValue')) * offer.get('value');
 				}
-				if(item.get('type') === Offer.MINUS){
-					result += item.get('value');
+				if(offer.get('type') === Offer.MINUS){
+					return offer.get('value');
 				}
 
-				return result;
-			}, 0);
+			});
+
+			var discount = Math.max.apply(null, discounts);
 
 			this.set('discount',discount);
 
