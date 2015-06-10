@@ -1,10 +1,11 @@
 import Ember from 'ember'; 
-import Book from 'bookshop/models/book'; 
 
 export default Ember.Route.extend({
 
+	book: Ember.inject.service(),
+
 	model:function(){
-		return Book.findAll();
+		return this.get('book').findAll();
 	},
 
 	actions: {
