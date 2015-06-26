@@ -1,11 +1,9 @@
 import Ember from 'ember'; 
 
-export default Ember.Route.extend({
-
-	book: Ember.inject.service(),
+export default Ember.Route.extend({	
 
 	model:function(){
-		return this.get('book').findAll();
+		return this.store.findAll('book');
 	},
 
 	actions: {

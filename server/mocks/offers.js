@@ -23,5 +23,5 @@ module.exports = function(app) {
   res.send(offers);
 });
 
-  app.use('/api/-offers/:isbns', offersRouter);
+  app.use('/api/offers/:isbns', offersRouter);
 };

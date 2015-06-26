@@ -49,5 +49,5 @@ module.exports = function(app) {
     res.send(books);
   });
 
-  app.use('/api/-books', booksRouter);
+  app.use('/api/books', booksRouter);
 };

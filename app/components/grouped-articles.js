@@ -51,7 +51,7 @@ export default Ember.Component.extend({
 
 			var lastGroupArticle = result.get('lastObject');
 
-			if (Ember.isNone(lastGroupArticle) || lastGroupArticle.article.isbn !== item.isbn){
+			if (Ember.isNone(lastGroupArticle) || lastGroupArticle.article.get('isbn') !== item.get('isbn')){
 				result.pushObject(
 					GroupArticles.create({
 						article: item,

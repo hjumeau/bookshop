@@ -1,11 +1,11 @@
-import Ember from 'ember';
+import DS from 'ember-data';
 
-var Book = Ember.Object.extend({
+var Book = DS.Model.extend({
 
-	isbn:null,
-	title:null,
-	price:0,
-	cover:null
+	isbn: DS.attr('string'),
+	title: DS.attr('string'),
+	price: DS.attr('number'),
+	cover: DS.attr('string')
   
 });
 
