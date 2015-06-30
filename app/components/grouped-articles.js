@@ -5,47 +5,21 @@ export default Ember.Component.extend({
 
 	groupedArticles:[],
 
-	didInsertElement:function(){
+	didInitAttrs(){
 
 		this.updateGroupedArticles();	
-	},
-
-	actions:{
-		
-		deleteAll:function(groupArticles){
-
-			var args = [groupArticles.startIndex, groupArticles.count];
-			
-			this.sendAction('updateCartArticles', args);
-		},
-		deleteArticles:function(groupArticles, nbr){
-			
-			var args = [groupArticles.startIndex, nbr];
-			
-			this.sendAction('updateCartArticles', args);
-		},
-		addArticles:function(groupArticles, nbr){
-			
-			var args = [groupArticles.startIndex, 0];
-
-			for (var i = nbr - 1; i >= 0; i--) {
-				args.push(groupArticles.article);
-			}
-			
-			this.sendAction('updateCartArticles', args);
-		}
-
+	
 	},
 
 	onNbrArticlesChange: function(){
 
 		this.updateGroupedArticles();
 		
-	}.observes('cart.nbrArticles'),
+	}.observes('articles.@each'),
 
-	updateGroupedArticles: function(){
+	updateGroupedArticles() {
 		
-		var articles = this.get('cart.articles');
+		var articles = this.get('articles');
 
 		var groupedArticles = articles.reduce(function(result, item){
 
@@ -70,7 +44,9 @@ export default Ember.Component.extend({
 		this.set('groupedArticles', groupedArticles);
 	}, 
 
-	getNextStartIndex: function(groupArticles){
+	getNextStartIndex(groupArticles) {
+		
 		return groupArticles ? groupArticles.startIndex + groupArticles.count : 0;
+	
 	}
 });

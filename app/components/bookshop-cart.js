@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
 	discount:0,
 
-	didInsertElement: function(){
+	didInitAttrs: function(){
 
 		this.updateDiscount();
 	},

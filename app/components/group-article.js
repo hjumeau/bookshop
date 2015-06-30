@@ -17,19 +17,35 @@ export default Ember.Component.extend({
 		}
 
 		var groupArticle = this.get('groupArticle'),
-			remains = this.get('desiredNbr') - groupArticle.count;
+			remains = this.get('desiredNbr') - groupArticle.count,
+			args = [];
 		
 		if (remains > 0) {
-			this.sendAction('addArticles', groupArticle, remains);
-		} else {
-			this.sendAction('deleteArticles', groupArticle.article, Math.abs(remains));
+
+			args = [groupArticle.startIndex, 0, []];
+
+			for (var i = remains - 1; i >= 0; i--) {
+				args[2].push(groupArticle.article);
+			}
+			
+			this.attrs.addArticles(args);
+
+		} else if (remains < 0) {
+
+			args = [groupArticle.startIndex, Math.abs(remains)];
+			
+			this.attrs.deleteArticles(args);
 		}
 	
 	}.observes('desiredNbr'),
 
 	actions:{
 		deleteAll: function(){
-			this.sendAction('deleteAll', this.get('groupArticle'));
+
+			var groupArticle = this.get('groupArticle'),
+				args = [groupArticle.startIndex, groupArticle.count];
+			
+			this.attrs.deleteAll(args);
 		}
 	}
 

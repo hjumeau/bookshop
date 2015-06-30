@@ -1,10 +1,10 @@
 <ul class="collection grouped-article z-depth-1">
-{{#each groupArticle in groupedArticles}}
+{{#each groupedArticles as |groupArticle|}}
 	{{group-article
 		class='collection-item group-article' 
 		groupArticle=groupArticle 
-		addArticles='addArticles' 
-		deleteArticles='deleteArticles' 
-		deleteAll='deleteAll'}}	
+		addArticles=attrs.updateCartArticles 
+		deleteArticles=attrs.updateCartArticles 
+		deleteAll=attrs.updateCartArticles}}	
 {{/each}}
 </ul>
