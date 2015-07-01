@@ -1,3 +1,5 @@
+'use strict';
+
 import Cart from 'bookshop/models/cart';
 
 export function initialize(container, application) {

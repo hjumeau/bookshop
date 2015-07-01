@@ -1,3 +1,5 @@
+'use strict';
+
 import DS from 'ember-data';
 
 var Book = DS.Model.extend({

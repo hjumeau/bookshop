@@ -1,11 +1,14 @@
+'use strict';
+
 import Ember from 'ember';
-import Offer from 'bookshop/models/offer';
 
 export default Ember.Component.extend({
 
+	offer: Ember.inject.service(),
+
 	discount:0,
 
-	didInitAttrs: function(){
+	didInitAttrs(){
 
 		this.updateDiscount();
 	},
@@ -22,21 +25,23 @@ export default Ember.Component.extend({
 
 	}.property('discount', 'cart.totalPrice'),
 
-	updateDiscount: function(){
+	updateDiscount(){
 
 		var totalPrice = this.get('cart.totalPrice');
 
-		Offer.find(this.get('cart.articles').mapBy('isbn')).then(function(offers){
+        var offerService = this.get('offer');
 
-			var discounts = offers.map(function(offer){
+		offerService.find(this.get('cart.articles').mapBy('isbn')).then((offers) => {
 
-				if(offer.get('type') === Offer.PERCENTAGE){
+			var discounts = offers.map((offer) => {
+
+				if(offer.get('type') === offerService.PERCENTAGE){
 					return (totalPrice * offer.get('value')) / 100;
 				}
-				if(offer.get('type') === Offer.SLICE){
+				if(offer.get('type') === offerService.SLICE){
 					return Math.floor(totalPrice / offer.get('sliceValue')) * offer.get('value');
 				}
-				if(offer.get('type') === Offer.MINUS){
+				if(offer.get('type') === offerService.MINUS){
 					return offer.get('value');
 				}
 			});
@@ -45,7 +50,7 @@ export default Ember.Component.extend({
 
 			this.set('discount',discount);
 
-		}.bind(this));
+		});
 	}
 
 });

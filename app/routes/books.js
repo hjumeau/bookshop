@@ -1,13 +1,15 @@
-import Ember from 'ember'; 
+'use strict';
+
+import Ember from 'ember';
 
 export default Ember.Route.extend({	
 
-	model:function(){
+	model(){
 		return this.store.findAll('book');
 	},
 
 	actions: {
-		goToCart: function(){
+		goToCart(){
 			this.transitionTo('cart');
 		}
 	}

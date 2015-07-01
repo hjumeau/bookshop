@@ -1,3 +1,5 @@
+'use strict';
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -9,7 +11,7 @@ export default Ember.Component.extend({
 	}.property('cart.articles.@each'),
 
 	actions:{
-		addToCart: function(book){
+		addToCart(book){
 			this.get('cart.articles').unshiftObject(book);
 		}
 	}

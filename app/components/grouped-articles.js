@@ -1,3 +1,5 @@
+'use strict';
+
 import Ember from 'ember';
 import GroupArticles from 'bookshop/models/group-articles';
 
@@ -21,7 +23,7 @@ export default Ember.Component.extend({
 		
 		var articles = this.get('articles');
 
-		var groupedArticles = articles.reduce(function(result, item){
+		var groupedArticles = articles.reduce((result, item) => {
 
 			var lastGroupArticle = result.get('lastObject');
 
@@ -39,7 +41,7 @@ export default Ember.Component.extend({
 
 			return result;
 
-		}.bind(this), []);	
+		}, []);
 
 		this.set('groupedArticles', groupedArticles);
 	}, 

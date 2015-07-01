@@ -1,10 +1,12 @@
+'use strict';
+
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
 	actions:{
 		
-		updateCartArticles:function(args){
+		updateCartArticles(args){
 
 			var articles = this.get('cart.articles');
 			

@@ -1,3 +1,5 @@
+'use strict';
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -17,14 +19,13 @@ export default Ember.Component.extend({
 		}
 
 		var groupArticle = this.get('groupArticle'),
-			remains = this.get('desiredNbr') - groupArticle.count,
-			args = [];
+			remains = this.get('desiredNbr') - groupArticle.count;
 		
 		if (remains > 0) {
 
-			args = [groupArticle.startIndex, 0, []];
+			let args = [groupArticle.startIndex, 0, []];
 
-			for (var i = remains - 1; i >= 0; i--) {
+			for (let i = remains - 1; i >= 0; i--) {
 				args[2].push(groupArticle.article);
 			}
 			
@@ -32,7 +33,7 @@ export default Ember.Component.extend({
 
 		} else if (remains < 0) {
 
-			args = [groupArticle.startIndex, Math.abs(remains)];
+			let args = [groupArticle.startIndex, Math.abs(remains)];
 			
 			this.attrs.deleteArticles(args);
 		}
@@ -40,7 +41,7 @@ export default Ember.Component.extend({
 	}.observes('desiredNbr'),
 
 	actions:{
-		deleteAll: function(){
+		deleteAll(){
 
 			var groupArticle = this.get('groupArticle'),
 				args = [groupArticle.startIndex, groupArticle.count];
