@@ -4,13 +4,13 @@ import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('bookshop-cart', 'Unit | Component | bookshop cart', {
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+	needs: ['service:offer']
 });
 
 test('finalPrice should equal to 75', function(assert) {
 	assert.expect(2);
 
-	defineFixture('/api/-offers/bbb', {
+	defineFixture('/api/offers/bbb', {
 		response: {
 			"offers": [
 			{
@@ -54,7 +54,7 @@ test('finalPrice should equal to 75', function(assert) {
 test('finalPrice should equal to 176', function(assert) {
 	assert.expect(2);
 
-	defineFixture('/api/-offers/bbb', {
+	defineFixture('/api/offers/bbb', {
 		response: {
 			"offers": [
 			{
@@ -98,7 +98,7 @@ test('finalPrice should equal to 176', function(assert) {
 test('finalPrice should equal to 127.5', function(assert) {
 	assert.expect(2);
 
-	defineFixture('/api/-offers/bbb', {
+	defineFixture('/api/offers/bbb', {
 		response: {
 			"offers": [
 			{
